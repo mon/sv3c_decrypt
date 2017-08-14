@@ -3104,6 +3104,7 @@ data/graphics/ver03/lane_00.ifs
 data/graphics/ver03/logo.ifs
 data/graphics/ver03/logo_j.ifs
 data/graphics/ver03/mainte.ifs
+data/graphics/ver03/mainte_j.ifs
 data/graphics/ver03/matching.ifs
 data/graphics/ver03/matching_j.ifs
 data/graphics/ver03/minichara.ifs
@@ -3159,6 +3160,7 @@ data/movie/prologue_852_8k-10k_30.wmv
 data/others/appealmessage.csv
 data/others/character_param.xml
 data/others/music_db.xml
+data/others/music_file_md5.xml
 data/others/story_scripts.xml
 data/others/taboo
 data/sound/00_title_bgm_02.2dx
