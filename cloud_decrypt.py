@@ -1,9 +1,10 @@
 from builtins import bytes
-from os.path import basename, dirname, exists
+from os.path import basename, dirname, exists, join
 import os
 import errno
 from struct import pack, unpack
 import hashlib
+import time
 
 import camellia
 from tqdm import tqdm
@@ -57,6 +58,15 @@ def obfuscate(path):
     hashed = hashlib.md5(toHash.encode('ASCII')).hexdigest()
     return 'data/{}/{}/{}/{}'.format(hashed[0], hashed[1], hashed[2], hashed[3:])
 
+def deobfuscate(obPath, filelist):
+    with open(filelist, 'r') as f:
+        files = [l.strip() for l in f.readlines()]
+
+    for f in files:
+        if obfuscate(f) == obPath:
+            return f
+    return None
+
 def find_missing(base):
     # cd eamuse_cloud
     # find data -type f > obfuscated.txt
@@ -69,7 +79,7 @@ def find_missing(base):
         for name in f.readlines():
             name = name.strip()
             ob = obfuscate(name)
-            path = base + ob
+            path = join(base,ob)
             if exists(path):
                 #print "HIT", name
                 out.write(name + '\n')
@@ -97,14 +107,11 @@ class CamelliaCounter():
         ret = (self.next() for i in range((count+15) // 16))
         return b''.join(ret)
 
-def decrypt_file(base, path, destination):
-    key, iv = generate_keys(path)
+def crypt_file(source, dest, key, iv):
     key = bytes(bytearray(key))
-    ob = obfuscate(path)
+    mkdir_p(dirname(dest))
 
-    mkdir_p(dirname(destination))
-
-    with open(base + ob, 'rb') as src:
+    with open(source, 'rb') as src:
         crypt = src.read()
 
     ctr = CamelliaCounter(iv)
@@ -112,16 +119,33 @@ def decrypt_file(base, path, destination):
     # generate the entire key at once since bigger inputs run faster
     keyStream = cam.encrypt(ctr.next_bytes(len(crypt)))
 
-    with open(destination, 'wb') as dest:
+    with open(dest, 'wb') as dest:
         dest.write(xor(crypt, keyStream))
+
+def encrypt_file(sourceDir, path, destDir):
+    '''encrypt_file('install_dir_decrypted', '/data/others/music_db.xml', 'install_dir')'''
+
+    key, iv = generate_keys(path)
+    ob = obfuscate(path)
+
+    crypt_file(join(sourceDir, path), join(destDir, ob), key, iv)
+
+def decrypt_file(sourceDir, path, destDir):
+    '''decrypt_file('install_dir', '/data/others/music_db.xml', 'install_dir_decrypted')'''
+
+    key, iv = generate_keys(path)
+    ob = obfuscate(path)
+
+    crypt_file(join(sourceDir, ob), join(destDir, path), key, iv)
 
 
 if __name__ == '__main__':
-    base = 'D:/sdvx/SDVX3_CLOUD/'
-    result = base + 'decrypted/'
+    sourceDir = 'D:/sdvx/EAMUSE_CLOUD'
+    destDir = join(sourceDir, 'decrypted')
 
     with open('filelist.txt') as f:
         for file in tqdm(f.readlines()):
             file = file.strip()
             tqdm.write(file)
-            decrypt_file(base, file, result + file)
+            if not exists(join(destDir, file)):
+                decrypt_file(sourceDir, file, destDir)
