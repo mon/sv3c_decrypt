@@ -3175,6 +3175,7 @@ data/movie/2nd_open.wmv
 data/movie/last.wmv
 data/movie/prologue_852_8k-10k_30.wmv
 data/music_data/002_-002.bin
+data/music_data/003_0625.bin
 data/others/appealmessage.csv
 data/others/character_param.xml
 data/others/music_db.xml
