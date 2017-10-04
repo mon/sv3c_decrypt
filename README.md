@@ -7,7 +7,7 @@ As filenames are obfuscated as a hash, you cannot simply browse the filesystem,
 you must know the filenames. As a convenience, I have included a list of most
 filenames used. There are only 2 files with an unknown name.
 
-Tested working as of the SV3C beta - keys may change with the final release.
+Works for SV3C alpha, beta and the full release.
 
 ### Setup:
 `pip install python-camellia tqdm`

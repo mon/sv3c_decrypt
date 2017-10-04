@@ -68,21 +68,26 @@ def deobfuscate(obPath, filelist):
     return None
 
 def find_missing(base):
-    # cd eamuse_cloud
-    # find data -type f > obfuscated.txt
-    with open('obfuscated.txt','r') as f:
-        obfuscated = [x.strip() for x in f.readlines()]
+    # what's in there at the moment
+    obfuscated = []
+    dataDir = join(base, 'data')
+    for dir_, _, files in os.walk(dataDir):
+        for fileName in files:
+            relDir = os.path.relpath(dir_, base)
+            relFile = os.path.join(relDir, fileName)
+            # consistency
+            relFile = relFile.replace('\\', '/')
+            obfuscated.append(relFile)
 
+    # what do we know
     with open('filelist.txt','r') as f, \
-         open('filelist_filtered.txt', 'w') as out, \
          open('filelist_missing.txt','w') as missing:
         for name in f.readlines():
             name = name.strip()
             ob = obfuscate(name)
             path = join(base,ob)
             if exists(path):
-                #print "HIT", name
-                out.write(name + '\n')
+                #print "HIT", name, ob
                 obfuscated.pop(obfuscated.index(ob))
             else:
                 missing.write(name + '\n')
@@ -146,6 +151,8 @@ if __name__ == '__main__':
     with open('filelist.txt') as f:
         for file in tqdm(f.readlines()):
             file = file.strip()
-            tqdm.write(file)
+            #if exists(join(sourceDir, obfuscate(file))):
+            #    print file
             if not exists(join(destDir, file)):
+                tqdm.write(file)
                 decrypt_file(sourceDir, file, destDir)
