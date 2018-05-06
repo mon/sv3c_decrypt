@@ -493,6 +493,8 @@ data/graphics/jk/jk_001_0075_2_b.ifs
 data/graphics/jk/jk_001_0075_2_s.ifs
 data/graphics/jk/jk_001_0075_3_b.ifs
 data/graphics/jk/jk_001_0075_3_s.ifs
+data/graphics/jk/jk_001_0076_1_b.ifs
+data/graphics/jk/jk_001_0076_1_s.ifs
 data/graphics/jk/jk_001_0077_1_b.ifs
 data/graphics/jk/jk_001_0077_1_s.ifs
 data/graphics/jk/jk_001_0078_1_b.ifs
@@ -1855,6 +1857,8 @@ data/graphics/jk/jk_003_0567_1_b.ifs
 data/graphics/jk/jk_003_0567_1_s.ifs
 data/graphics/jk/jk_003_0568_1_b.ifs
 data/graphics/jk/jk_003_0568_1_s.ifs
+data/graphics/jk/jk_003_0569_1_b.ifs
+data/graphics/jk/jk_003_0569_1_s.ifs
 data/graphics/jk/jk_003_0570_1_b.ifs
 data/graphics/jk/jk_003_0570_1_s.ifs
 data/graphics/jk/jk_003_0571_1_b.ifs
@@ -2803,6 +2807,8 @@ data/graphics/jk/jk_003_0847_1_b.ifs
 data/graphics/jk/jk_003_0847_1_s.ifs
 data/graphics/jk/jk_003_0848_1_b.ifs
 data/graphics/jk/jk_003_0848_1_s.ifs
+data/graphics/jk/jk_003_0850_1_b.ifs
+data/graphics/jk/jk_003_0850_1_s.ifs
 data/graphics/jk/jk_003_0851_1_b.ifs
 data/graphics/jk/jk_003_0851_1_s.ifs
 data/graphics/jk/jk_003_0854_1_b.ifs
@@ -3021,6 +3027,14 @@ data/graphics/jk/jk_003_0977_3_b.ifs
 data/graphics/jk/jk_003_0977_3_s.ifs
 data/graphics/jk/jk_003_0977_4_b.ifs
 data/graphics/jk/jk_003_0977_4_s.ifs
+data/graphics/jk/jk_003_0979_1_b.ifs
+data/graphics/jk/jk_003_0979_1_s.ifs
+data/graphics/jk/jk_003_0979_2_b.ifs
+data/graphics/jk/jk_003_0979_2_s.ifs
+data/graphics/jk/jk_003_0979_3_b.ifs
+data/graphics/jk/jk_003_0979_3_s.ifs
+data/graphics/jk/jk_003_0979_4_b.ifs
+data/graphics/jk/jk_003_0979_4_s.ifs
 data/graphics/jk/jk_003_1220_1_b.ifs
 data/graphics/jk/jk_003_1220_1_s.ifs
 data/graphics/jk/jk_003_1220_2_b.ifs
@@ -3372,6 +3386,7 @@ data/sound/preview/001_0072_pre.2dx
 data/sound/preview/001_0073_pre.2dx
 data/sound/preview/001_0074_pre.2dx
 data/sound/preview/001_0075_pre.2dx
+data/sound/preview/001_0076_pre.2dx
 data/sound/preview/001_0077_pre.2dx
 data/sound/preview/001_0078_pre.2dx
 data/sound/preview/001_0083_pre.2dx
@@ -3790,6 +3805,7 @@ data/sound/preview/003_0564_pre.2dx
 data/sound/preview/003_0565_pre.2dx
 data/sound/preview/003_0567_pre.2dx
 data/sound/preview/003_0568_pre.2dx
+data/sound/preview/003_0569_pre.2dx
 data/sound/preview/003_0570_pre.2dx
 data/sound/preview/003_0571_pre.2dx
 data/sound/preview/003_0572_pre.2dx
@@ -4040,6 +4056,7 @@ data/sound/preview/003_0845_pre.2dx
 data/sound/preview/003_0846_pre.2dx
 data/sound/preview/003_0847_pre.2dx
 data/sound/preview/003_0848_pre.2dx
+data/sound/preview/003_0850_pre.2dx
 data/sound/preview/003_0851_pre.2dx
 data/sound/preview/003_0854_pre.2dx
 data/sound/preview/003_0855_pre.2dx
@@ -4100,6 +4117,7 @@ data/sound/preview/003_0953_pre.2dx
 data/sound/preview/003_0975_pre.2dx
 data/sound/preview/003_0976_pre.2dx
 data/sound/preview/003_0977_pre.2dx
+data/sound/preview/003_0979_pre.2dx
 data/sound/preview/003_1220_pre.2dx
 data/sound/sys_sd_credit.2dx
 data/sound/sys_sd_sram.2dx
